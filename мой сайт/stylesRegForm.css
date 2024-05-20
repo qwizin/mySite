@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+nav {
+    position: flex;
+    width: 98.5%;
+    margin-top: -0px;
+    background-color: white;
+    padding: 10px;
+    text-align: left;
+    z-index: 1000;
+}
+nav a {
+    color: black;
+    text-decoration: none;
+    padding-bottom: 20px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.special{           /*класс для кнопки поиск книг*/
+   text-align: right;   
+   margin-left: 150px;
+   background-color: rgba(72, 141, 244, 0.64);
+   border-radius: 30px;
+   width: 200px;
+}
+.special1{      /*класс для кнопки войти*/
+   text-align: right;   
+   margin-left: 70px;
+   background-color: rgba(72, 141, 244, 0.64);
+   border-radius: 30px;
+   width: 200px;
+}
+nav img {/*класс для картинок*/
+    vertical-align: middle;
+    margin-left: 100px;
+    max-width: 300px;
+    max-height: auto;
+    border-radius: 5px;
+}
+
+
+.container {
+    max-width: 400px;
+    max-height: auto;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 90px;
+    border: 1px solid black;
+    border-radius: 35px;
+}
+.form-group {
+    margin-bottom: 20px;
+    padding-right: 15px;
+}
+label {
+    display: flex;
+    font-weight: bold;
+}
+input[type="text"], input[type="email"], input[type="tel"], textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+input[type="submit"] {
+    background-color: rgba(72, 141, 244, 0.64);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background-color: #999;
+}

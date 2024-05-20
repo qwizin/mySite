@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxiBook</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        h1 {
+            margin: 0;
+        }
+        h3 {
+            margin: 0;
+        }
+        nav {
+            position: fixed;
+            width: 100%;
+            margin-top: -90px;
+            background-color: white;
+            padding: 10px;
+            text-align: left;
+            z-index: 1000;
+        }
+        nav a {
+            color: black;
+            text-decoration: none;
+            padding-bottom: 20px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .book a{
+            color: black;
+            text-decoration: none;
+            padding: 5px 20px;
+            margin: 0px 55px;
+            transition: background-color 0.3s ease;
+        }
+        .special{           /*класс для кнопки поиск книг*/
+           text-align: right;   
+           margin-left: 150px;
+           background-color: rgba(72, 141, 244, 0.64);
+           border-radius: 30px;
+           width: 200px;
+        }
+        .special1{      /*класс для кнопки войти*/
+           text-align: right;   
+           margin-left: 70px;
+           background-color: rgba(72, 141, 244, 0.64);
+           border-radius: 30px;
+           width: 200px;
+        }
+        .special2{      /*класс для кнопки купить*/
+           text-align: right;   
+           background-color: rgba(72, 141, 244, 0.64);
+           border-radius: 30px;
+           width: 200px;
+        }
+        nav a:hover {
+            background-color: #999;
+        }
+        .book a:hover {
+            background-color: #999;
+        }
+        nav img {/*класс для картинок*/
+            vertical-align: middle;
+            margin-left: 100px;
+            max-width: 300px;
+            max-height: auto;
+            border-radius: 5px;
+        }
+        .container1 {
+            max-width: 1200px;
+            height: auto;
+            margin: 20px 10px;
+            margin-top: 90px;
+            padding: 0 20px;
+            display: flex;
+        }
+        .book {
+            display: inline-block;
+            background-color: #fff;
+            max-width: 210px;
+            height: 480px;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 50px;
+        }
+        
+        .book h3{
+            margin: 0px 0px;
+            margin-bottom: 10px;
+            overflow-wrap: break-word;
+        }
+        .book h3 img{
+            vertical-align: middle;
+            
+        }
+        .book img{
+            margin-bottom: 10px;
+            padding-right: 10px;
+        }
+        .book img.star {
+            position: absolute;
+            bottom: 5%; /* Отступ от нижнего края .book */
+            left: 5%; /* Отступ от левого края .book */
+        }
+        .book h3.z{
+            padding-top: 17px;
+        }
+        .book h3.v{
+            padding-top: 37px;
+        }
+        .book h3.c{
+            padding-top: -57px;
+        }
+        .book a.sss{ /*класс для страниц чтоб фотки не двигались */
+            padding: 0px;
+            margin: 0px;
+        }
+        .book a.sss:hover {
+            text-decoration: none;
+            outline: none;
+            background-color: white;
+        }
+
+        /*форма для покупки*/
+        .form-group {
+    margin-bottom: 20px;
+    padding-right: 15px;
+}
+label {
+    display: flex;
+    font-weight: bold;
+}
+input[type="text"], input[type="email"], input[type="tel"], textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+input[type="submit"] {
+    background-color: rgba(72, 141, 244, 0.64);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background-color: #999;
+}
+        
+        
+        /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px; /* Location of the box */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="mySite.html">Главная</a>
+        <a href="#">Что почитать </a>
+        <a href="#">Жанры </a>
+        <a href="#">Авторы</a>
+        <img src="эл-ты/maxibook.png" alt="логотип">
+        <a href="#" class="special">Поиск книг</a>
+        <a href="RegForm.html" id="openModal2" class="special1">Войти</a>
+    </nav>
+    <div class="container1">
+        <div class="book">
+            <a href="PageForm.html" class="sss">
+                <img  src="картинки/пелевин 1.png" alt="Книга 1">
+            </a>
+            <h3>Путешествие в <br> Элевстин</h3>
+            <p>Виктор Пелевин</p>
+            <h3 class="c"> <img src="эл-ты/звезда 1.png" alt="звезда"> 3,8</h3>
+            <a href="BuyForm.html" class="special2" id="openModal">Купить</a>               
+        </div>
+        <div class="book">
+            <a class="sss">
+                <img src="картинки/тачдаун 1.png" alt="Книга 2">
+            </a>
+            <h3>Тачдаун </h3>
+            <p>Сола Рэйн</p>
+            <h3 class="z"><img src="эл-ты/звезда 1.png" alt="звезда"> 3,7</h3>
+            <a href="#" class="special2" id="openModal">Купить</a> 
+        </div>
+        <div class="book">
+            <a class="sss">
+                <img src="картинки/сила этики 1.png" alt="Книга 2">
+            </a>
+            <h3>Сила этики</h3>
+            <p>Сьюзан Лиото</p>
+            <h3 class="z"><img src="эл-ты/звезда 1.png" alt="звезда"> 3,9</h3>
+            <a href="BuyForm.html" class="special2" id="openModal">Купить</a> 
+        </div>
+        <div class="book">
+            <a class="sss">
+                <img src="картинки/подростки 1.png" alt="Книга 1">
+            </a>
+            <h3>Неспящие <br> подростки</h3>
+            <h3 class="v"><img src="эл-ты/звезда 1.png" alt="звезда"> 4,5</h3>
+            <a href="BuyForm.html" class="special2" id="openModal">Купить</a> 
+        </div>
+        <div class="book">
+            <a class="sss">
+                <img src="картинки/арт-обьект 1.png" alt="Книга 2">
+            </a>
+            <h3>Арт-объект</h3>
+            <p>Сергей Недоруб</p>
+            <h3 class="z"><img src="эл-ты/звезда 1.png" alt="звезда"> 3,6</h3>
+            <a href="BuyForm.html" class="special2" id="openModal">Купить</a> 
+        </div>
+    </div>
+    <div class="container1">
+        <div class="book">
+            <a class="sss">
+                 <img src="картинки/Лишние 1.png" alt="Книга 1">
+            </a>
+            <h3>Лишние</h3>
+            <p>Александра Райт</p>
+            <h3 class="z"><img src="эл-ты/звезда 1.png" alt="звезда"> 4,1</h3>
+            <a href="BuyForm.html" class="special2" id="openModal">Купить</a> 
+        </div>
+        <div class="book">
+            <a class="sss">
+                <img src="картинки/Хорея 1.png" alt="Книга 2">
+            </a>
+            <h3>Хорея</h3>
+            <p>Марина Кочан</p>
+            <h3 class="z"><img src="эл-ты/звезда 1.png" alt="звезда"> 4,3</h3>
+            <a href="BuyForm.html" class="special2" id="openModal">Купить</a> 
+        </div>
+        <div class="book">
+            <a class="sss">
+                 <img src="картинки/фрэнсис 1.png" alt="Книга 2">
+            </a>
+            <h3>Фрэнсис</h3>
+            <p>Loputyn</p>
+            <h3 class="z"><img src="эл-ты/звезда 1.png" alt="звезда"> 4,3</h3>
+            <a href="BuyForm.html" class="special2" id="openModal">Купить</a> 
+        </div>
+        <div class="book">
+            <a class="sss">
+                 <img src="картинки/Сэйв 1.png" alt="Книга 1">
+            </a>
+            <h3>Сэйв</h3>
+            <p>Ава Хоуп</p>
+            <h3 class="z"><img src="эл-ты/звезда 1.png" alt="звезда"> 4,5</h3>
+            <a href="BuyForm.html" class="special2" id="openModal">Купить</a> 
+        </div>
+        <div class="book">
+            <a class="sss">
+                 <img src="картинки/птицы 1.png" alt="Книга 2">
+            </a>
+           
+            <h3>Птицы</h3>
+            <p>Владимир Торин</p>
+            <h3 class="z"><img src="эл-ты/звезда 1.png" alt="звезда"> 4,4</h3>
+            <a href="BuyForm.html" class="special2" id="openModal">Купить</a> 
+        </div>
+    </div>
+    <div class="container1">
+        <div class="book">
+            <a class="sss">
+                 <img src="картинки/Нетвой 1.png" alt="Книга 1">
+            </a>
+           
+            <h3>Нетвой</h3>
+            <p>Эллин Ти</p>
+            <h3 class="z"><img src="эл-ты/звезда 1.png" alt="звезда"> 4,2</h3>
+            <a href="BuyForm.html" class="special2" id="openModal">Купить</a> 
+        </div>
+        <div class="book">
+            <a class="sss">
+                 <img src="картинки/кощеева невеста 1.png" alt="Книга 2">
+            </a>
+           
+            <h3>Кощеева невеста</h3>
+            <p>Алан Чароит</p>
+            <h3 class="z"><img src="эл-ты/звезда 1.png" alt="звезда"> 4,5</h3>
+            <a href="BuyForm.html" class="special2" id="openModal">Купить</a> 
+        </div>
+        <div class="book">
+            <a class="sss">
+                 <img src="картинки/скоро 1.png" alt="Книга 2">
+            </a>
+           
+            <h3>Скоро конец <br> света</h3>
+            <p>Микита Франко</p>
+            <h3 ><img src="эл-ты/звезда 1.png" alt="звезда"> 4,5</h3>
+            <a href="BuyForm.html" class="special2" id="openModal">Купить</a> 
+        </div>
+        <div class="book">
+            <a class="sss">
+                <img src="картинки/сказка 1.png" alt="Книга 1">
+            </a>
+
+            <h3>Сказка о снежной <br> принцессе</h3>
+            <p>Ася Лавринович</p>
+            <h3 ><img src="эл-ты/звезда 1.png" alt="звезда"> 4,6</h3>
+            <a href="BuyForm.html" class="special2" id="openModal">Купить</a> 
+        </div>
+        <div class="book">
+            <a class="sss">
+                 <img src="картинки/птицы 2.png" alt="Книга 2">
+            </a>
+           
+            <h3>Птицы </h3>
+            <p>Владимир Торин</p>
+            <h3 class="z"><img src="эл-ты/звезда 1.png" alt="звезда"> 4,4</h3>
+            <a href="BuyForm.html" class="special2" id="openModal">Купить</a> 
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="form-group">
+                <label for="name">Ваше имя:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Ваша фамилия:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">ваш E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Ваш телефон:</label> 
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <input type="submit" value="Отправить">
+        </div>
+    </div>
+
+    <div id="myModal2" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+                <div class="form-group">
+                    <label for="name">Введите e-mail или никнейм</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Введите пароль</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <input type="submit" value="Войти">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

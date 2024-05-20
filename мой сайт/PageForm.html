@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxiBook</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        h1, h2, p {
+        margin: 0;
+        }
+        nav {
+            position: fixed;
+            width: 100%;
+            margin-top: 0px;
+            background-color: white;
+            padding: 10px;
+            text-align: left;
+            z-index: 1000;
+        }
+        nav a {
+            color: black;
+            text-decoration: none;
+            padding-bottom: 20px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .special{           /*класс для кнопки поиск книг*/
+           text-align: right;   
+           margin-left: 150px;
+           background-color: rgba(72, 141, 244, 0.64);
+           border-radius: 30px;
+        }
+        .special1{      /*класс для кнопки войти*/
+           text-align: right;   
+           margin-left: 70px;
+           background-color: rgba(72, 141, 244, 0.64);
+           border-radius: 30px; 
+        }
+        .special2{      /*класс для кнопки купить*/
+           text-align: right;   
+           background-color: rgba(72, 141, 244, 0.64);
+           border-radius: 30px;
+           padding: 9px 70px;
+           text-decoration: none;
+           position: relative;
+            top: 47px;
+            right: 215px;
+            color:#ffffff;
+            font-size: 24px;
+        }
+        nav img {/*класс для картинок*/
+            vertical-align: middle;
+            margin-left: 100px;
+            max-width: 300px;
+            max-height: auto;
+            border-radius: 5px;
+        }
+
+        .blok{
+            display: inline-block;
+            background-color: #212121;
+            width: 1100px;
+            height: 180px;
+            padding: 20px;
+            margin: 20px;
+            margin-top: 80px;
+            margin-left: 195px;
+            border-radius: 30px;
+        }
+        .blok h1{
+            color: #ffffff;
+            margin-left: 350px;
+            font-size: 45px;
+        }
+        .blok h2{
+            color: #ffffff;
+            margin-left: 350px;
+            margin-top: 20px;
+        }
+        .blok img{
+            margin-top: -100px;
+            margin-left: 35px;
+        }
+        
+        .fotka{
+            position: fixed;
+            z-index: 1005;
+        }
+        .fail{
+            position: relative;
+            top: 140px;
+            right: 450px;
+            max-width: 45px;
+            
+        }
+        .bukva{
+            color: black;
+            position: relative; 
+            top: 170px;
+            right: 540px;
+                   
+        }
+        .zap{
+            position: relative;
+            top: 140px;
+            right: 510px;
+            max-width: 45px;
+        }
+        .bukva1{
+            color: black;
+            position: relative; 
+            top: 170px;
+            right: 575px;
+                  
+        }
+        .bukva2{
+            color: black;
+            position: relative; 
+            top: 130px;
+            right: -280px;
+            font-size: 25px;        
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="mySite.html">Главная</a>
+        <a href="#">Что почитать </a>
+        <a href="#">Жанры </a>
+        <a href="#">Авторы</a>
+        <img src="эл-ты/maxibook.png" alt="логотип">
+        <a href="#" class="special">Поиск книг</a>
+        <a href="#" class="special1">Войти</a>
+    </nav>  
+
+    <div class="blok">
+        <h1>Путешествие в Элевсин</h1>
+        <h2>Виктор Пелевин</h2>
+        <div class="fotka">
+            <img src="картинки/пелевин 1.png">
+            <a href="BuyForm.html" class="special2">Купить</a>
+            <img class="fail" src="эл-ты/файл.png">
+            <a class="bukva">Оставить отзыв</a>
+            <img src="эл-ты/запятая.png" class="zap">
+            <a class="bukva1">Цитировать</a>   
+        </div>
+        <a class="bukva2">            «Путешествие в Элевсин» — роман российского писателя Виктора Пелевина. <br>
+            Сюжет: стареющий римский император Порфирий хочет совершить паломничество<br> в древнегреческий город Элевсин. 
+            При этом Порфирий — это просто нейросеть,<br> а древний Рим — это симуляция.</a>
+        
+    </div>
+</body>
+</html>
